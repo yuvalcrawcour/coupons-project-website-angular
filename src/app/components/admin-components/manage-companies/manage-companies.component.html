@@ -1,0 +1,51 @@
+<fieldset>
+    <legend>add company</legend>
+<form action="" #formInfo="ngForm">
+    <input name="name" type="text" placeholder="name" [(ngModel)]="company.name" required #nameInfo="ngModel"
+        pattern="^[A-Z].*$" />
+    <!-- <span *ngIf="nameInfo.invalid && nameInfo.touched">name is missing</span> -->
+    <!-- <span *ngIf="nameInfo.invalid && nameInfo.dirty">name is missing</span> -->
+    <span *ngIf="nameInfo.touched && nameInfo.errors?.['required']">name missing</span>
+    <span *ngIf="nameInfo.touched && nameInfo.errors?.['pattern']">name mast start with a capital letter</span>
+    <br />
+
+    <input name="email" type="text" placeholder="email" [(ngModel)]="company.email" required #emailInfo="ngModel"
+    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+  <span *ngIf="emailInfo.touched && emailInfo.errors?.['required']">email is missing</span>
+  <span *ngIf="emailInfo.touched && emailInfo.errors?.['pattern']">email is not valid</span>
+    <br />
+
+    <input name="password" type="text" placeholder="password" [(ngModel)]="company.password" required
+        #passwordInfo="ngModel" />
+    <span *ngIf="passwordInfo.touched && passwordInfo.errors?.['required']">password is missing</span>
+    >
+    <br />
+    <button [disabled]="formInfo.invalid" (click)="addCompany()">
+        Add company
+    </button>
+</form>
+
+</fieldset>
+
+<br />
+<hr />
+
+<fieldset>
+<legend>delete company</legend>
+<div><input #delete type="number" placeholder="delete id"></div>
+<button (click)="deleteCompany(delete.value)">delete</button>
+</fieldset>
+
+<br />
+<hr />
+
+<fieldset>
+    <legend>update company</legend>
+    <div><input #updateId type="number" placeholder="id"></div>
+    <div><input #updateName type="string" placeholder="name"></div>
+    <div><input #updateEmail type="string" placeholder="email"></div>
+    <div><input #updatePassword type="string" placeholder="password"></div>
+
+    <button
+        (click)="updateCompany(updateId.value,updateName.value,updateEmail.value,updatePassword.value)">update</button>
+</fieldset>

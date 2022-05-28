@@ -1,0 +1,25 @@
+section {
+    height: 100%;
+    border: 2px solid black;
+    background-color: palegreen;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 14% 76% 10%;
+    grid-template-columns: 13% 87%;
+  }
+  
+  header {
+    border: inherit;
+    grid-column: span 2;
+  }
+  aside {
+    border: inherit;
+  }
+  main {
+    border: inherit;
+  }
+  footer {
+    border: inherit;
+    grid-column: span 2;
+  }
+  

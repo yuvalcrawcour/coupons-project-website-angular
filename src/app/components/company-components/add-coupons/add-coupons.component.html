@@ -1,0 +1,57 @@
+<fieldset>
+    <legend>add coupon</legend>
+    <form action="" #formInfo="ngForm">
+      <select required [(ngModel)]="couponToAdd.category" #categoryInfo="ngModel" name="categoryInfo"
+        placeholder="category">
+        <option value="FOOD" selected>FOOD</option>
+        <option value="ELECTRONICS">ELECTRONICS</option>
+        <option value="HOME">HOME</option>
+        <option value="CLOTHING">CLOTHING</option>
+        <option value="CAMPING">CAMPING</option>
+        <option value="VACATION">VACATION</option>
+      </select>
+      <span>category</span>
+  
+      <br />
+  
+      <input name="title" type="text" placeholder="title" [(ngModel)]="couponToAdd.title" required #titleInfo="ngModel"
+        pattern="^[A-Z].*$" />
+      <span *ngIf="titleInfo.touched && titleInfo.errors?.['required']">title missing</span>
+      <span *ngIf="titleInfo.touched && titleInfo.errors?.['pattern']">title must start with a capital letter</span>
+      <br />
+  
+      <input name="description" type="text" placeholder="description" [(ngModel)]="couponToAdd.description" required
+        #descriptionInfo="ngModel" />
+      <span *ngIf="descriptionInfo.touched && descriptionInfo.errors?.['required']">description missing</span>
+      <br />
+  
+      <input name="startDate" type="date" placeholder="start date" [(ngModel)]="couponToAdd.startDate" required
+        #startDateInfo="ngModel" />
+      <span *ngIf="startDateInfo.touched && startDateInfo.errors?.['required']">start date missing</span>
+      <br />
+  
+      <input name="endDate" type="date" placeholder="end date" [(ngModel)]="couponToAdd.endDate" required
+        #endDateInfo="ngModel" />
+      <span *ngIf="endDateInfo.touched && endDateInfo.errors?.['required']">end date missing</span>
+      <br />
+  
+      <input type="number" name="amount" placeholder="amount" [(ngModel)]="couponToAdd.amount" required min="0" max="1000"
+        #amountInfo="ngModel" />
+      <span *ngIf="amountInfo.touched && amountInfo.errors?.['required']">amount missing</span>
+      <span *ngIf="amountInfo.touched && amountInfo.errors?.['min']">amount too low</span>
+      <span *ngIf="amountInfo.touched && amountInfo.errors?.['max']">amount too high</span>
+      <br />
+  
+      <input type="number" name="price" placeholder="price" [(ngModel)]="couponToAdd.price" required min="0" max="100000"
+        #priceInfo="ngModel" />
+      <span *ngIf="priceInfo.touched && priceInfo.errors?.['required']">price missing</span>
+      <span *ngIf="priceInfo.touched && priceInfo.errors?.['min']">price too low</span>
+      <span *ngIf="priceInfo.touched && priceInfo.errors?.['max']">price too high</span>
+  
+      <br />
+      <button [disabled]="formInfo.invalid" (click)="addCoupon()">
+        Add coupon
+      </button>
+    </form>
+  
+  </fieldset>

@@ -1,0 +1,27 @@
+<!-- 
+<div *ngIf="product">
+    <h1>all companies</h1>
+<div>name: {{product.name}}</div>
+<div>price: {{product.price}}</div>
+<div>stock: {{product.stock}}</div>
+</div> -->
+<h1>companies</h1>
+<ng-template #loading>
+    <div style="text-align: center">
+    <img src="assets/images/loading.gif" alt="loading..." width="150"/>
+    </div>
+</ng-template>
+<table *ngIf="companies; else loading">
+    <tr>
+        <th>name</th>
+        <th>id</th>
+        <th>email</th>
+    </tr>
+    <tbody>
+    <tr *ngFor="let c of companies">
+        <td><a routerLink="/welcome-admin/companyDetails/{{c.id}}" routerLinkActive="active-link">{{c.name}}</a></td>
+        <td>{{c.id}}</td>
+        <td>{{c.email}}</td>
+    </tr>
+</tbody>
+</table>

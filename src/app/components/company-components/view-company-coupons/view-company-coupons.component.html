@@ -1,0 +1,41 @@
+<form action="" #FormInfoCategory="ngForm">
+<select required #category placeholder="category">
+    <option value="FOOD" selected>FOOD</option>
+    <option value="ELECTRONICS">ELECTRONICS</option>
+    <option value="HOME">HOME</option>
+    <option value="CLOTHING">CLOTHING</option>
+    <option value="CAMPING">CAMPING</option>
+    <option value="VACATION">VACATION</option>
+</select>
+
+<button [disabled]="FormInfoCategory.invalid" (click)="showByCategory(category.value)">show by category</button>
+</form>
+
+<ng-template #loading>
+    <div style="text-align: center">
+        <img src="assets/images/loading.gif" alt="loading..." width="150" />
+    </div>
+</ng-template>
+<table *ngIf="toShowByCategory; else loading">
+    <tr>
+        <th>title</th>
+        <th>description</th>
+        <th>category</th>
+        <th>amount</th>
+        <th>startDate</th>
+        <th>endDate</th>
+        <th>price</th>
+        <th>image</th>
+
+
+    </tr>
+    <tbody>
+        <tr *ngFor="let c of couponsByCategory">
+            <td>{{c.title}}</td>
+            <td>{{c.description}}</td>
+            <td>{{c.category}}</td>
+            <td>{{c.amount}}</td>
+            <td>{{c.startDate}}</td>
+            <td>{{c.endDate}}</td>
+            <td>{{c.price}}</td>
+            <td>{{c.image}}</td>

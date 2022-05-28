@@ -1,0 +1,13 @@
+:host {
+  text-align: center;
+}
+
+h1 {
+  font-size: 40px;
+  color: darkblue;
+  /* vertical center alignment */
+  margin: 0;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}

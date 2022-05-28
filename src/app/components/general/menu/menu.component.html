@@ -1,0 +1,18 @@
+<span *ngIf="checkClientType()=='ADMIN'">
+    <a routerLink="/welcome-admin/about" routerLinkActive="active-link">About</a>
+<a routerLink="/welcome-admin/home" routerLinkActive="active-link">Home</a>
+<a routerLink="/welcome-admin/view-companies" routerLinkActive="active-link">View companies</a>
+<a routerLink="/welcome-admin/manage-companies" routerLinkActive="active-link">Manage companies</a>
+<a routerLink="/welcome-admin/view-customers" routerLinkActive="active-link">View  customers</a>
+<a routerLink="/welcome-admin/manage-customers" routerLinkActive="active-link">Manage customers</a>
+</span>
+
+<span *ngIf="checkClientType()=='COMPANY'">
+    <a routerLink="/welcome-company/about" routerLinkActive="active-link">About</a>
+    <a routerLink="/welcome-company/home" routerLinkActive="active-link">Home</a>
+    <a routerLink="/welcome-company/add-coupons" routerLinkActive="active-link">Add coupons</a>
+    <a routerLink="/welcome-company/delete-update-coupons" routerLinkActive="active-link">Delete/update coupons</a>
+    <a routerLink="/welcome-company/view-company-coupons" routerLinkActive="active-link">View coupons</a>
+    </span>
+<hr>
+<button (click)="logout()">logout</button>

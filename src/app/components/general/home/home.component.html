@@ -1,0 +1,38 @@
+<!-- ngIf - structural directive -->
+<!-- data binding (template and TS communiction) -->
+<!-- databinding 1. string interpolation {{}} -->
+<!-- <h3 [style.color]="discountStyle" *ngIf="discount > 0">
+    Only now at {{ currDate | date: "MMMM yyyy" }} a discount of {{ discount }}%
+    on all products
+  </h3> -->
+  <h1>hello admin</h1> 
+      <h2>this website is ready for you to use. </h2>
+     <h2 *ngIf="checkClientType() == 'ADMIN' " > you can manage the companies and the customers as you wish and view them.</h2>
+     <h2 *ngIf="checkClientType() == 'COMPANY' " > you can</h2>
+  
+  <!-- databinding 2. property binding [] -->
+  <img src="assets/images/coupons.png" [width]="imgWidth" alt="" />
+  
+  <!-- databinding 3. event binding () -->
+  <!-- databinding 4. two way binding [()] -->
+  <!-- <div>
+    <button (click)="decreaseWidth()">-</button>
+    <button (click)="resetWidth()">rest</button>
+    <button (click)="increaseWidth()">+</button>
+    <br />
+    <input
+      type="range"
+      min="0"
+      value="300"
+      max="600"
+      step="10"
+      [(ngModel)]="imgWidth"
+    />
+    <br />
+    image width: {{ imgWidth }}
+    <br/>
+    <input type="text" [(ngModel)]="x" >
+    <br/>
+    <input type="text" value="{{x}}">
+  </div> -->
+  

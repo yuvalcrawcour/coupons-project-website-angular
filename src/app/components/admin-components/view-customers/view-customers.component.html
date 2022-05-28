@@ -1,0 +1,22 @@
+<h1>Our Customers</h1>
+<ng-template #loading>
+    <div style="text-align: center">
+    <img src="assets/images/loading.gif" alt="loading..." width="150"/>
+    </div>
+</ng-template>
+<table *ngIf="customers; else loading">
+    <tr>
+        <th>first name</th>
+        <th>last name</th>
+        <th>id</th>
+        <th>email</th>
+    </tr>
+    <tbody>
+    <tr *ngFor="let c of customers">
+        <td><a routerLink="/welcome-admin/customerDetails/{{c.id}}" routerLinkActive="active-link">{{c.firstName}}</a></td>
+        <td>{{c.lastName}}</td>
+        <td>{{c.id}}</td>
+        <td>{{c.email}}</td>
+    </tr>
+</tbody>
+</table>

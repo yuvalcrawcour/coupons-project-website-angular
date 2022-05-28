@@ -1,0 +1,59 @@
+<fieldset>
+    <legend>add customer</legend>
+<form action="" #formInfo="ngForm">
+    <input name="firstName" type="text" placeholder="first name" [(ngModel)]="customer.firstName" required #firstNameInfo="ngModel"
+        pattern="^[A-Z].*$" />
+    <!-- <span *ngIf="nameInfo.invalid && nameInfo.touched">name is missing</span> -->
+    <!-- <span *ngIf="nameInfo.invalid && nameInfo.dirty">name is missing</span> -->
+    <span *ngIf="firstNameInfo.touched && firstNameInfo.errors?.['required']">name missing</span>
+    <span *ngIf="firstNameInfo.touched && firstNameInfo.errors?.['pattern']">name mast start with a capital letter</span>
+    <br />
+    <input name="lastName" type="text" placeholder="last name" [(ngModel)]="customer.lastName" required #lastNameInfo="ngModel"
+        pattern="^[A-Z].*$" />
+    <!-- <span *ngIf="nameInfo.invalid && nameInfo.touched">name is missing</span> -->
+    <!-- <span *ngIf="nameInfo.invalid && nameInfo.dirty">name is missing</span> -->
+    <span *ngIf="lastNameInfo.touched && lastNameInfo.errors?.['required']">name missing</span>
+    <span *ngIf="lastNameInfo.touched && lastNameInfo.errors?.['pattern']">name mast start with a capital letter</span>
+    <br />
+
+    <input name="email" type="text" placeholder="email" [(ngModel)]="customer.email" required #emailInfo="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+    <span *ngIf="emailInfo.touched && emailInfo.errors?.['required']">email is missing</span>
+    <span *ngIf="emailInfo.touched && emailInfo.errors?.['pattern']">email is not valid</span>
+    <br />
+
+
+    <input name="password" type="text" placeholder="password" [(ngModel)]="customer.password" required
+        #passwordInfo="ngModel" />
+    <span *ngIf="passwordInfo.touched && passwordInfo.errors?.['required']">password is missing</span>
+    >
+    <br />
+    <button [disabled]="formInfo.invalid" (click)="addCustomer()">
+        Add customer
+    </button>
+</form>
+
+</fieldset>
+
+<br />
+<hr />
+
+<fieldset>
+<legend>delete customer</legend>
+<div><input #delete type="number" placeholder="delete id"></div>
+<button (click)="deleteCustomer(delete.value)">delete</button>
+</fieldset>
+
+<br />
+<hr />
+
+<fieldset>
+    <legend>update customer</legend>
+    <div><input #updateId type="number" placeholder="id"></div>
+    <div><input #updateFirstName type="string" placeholder="first name"></div>
+    <div><input #updateLastName type="string" placeholder="last name"></div>
+    <div><input #updateEmail type="string" placeholder="email"></div>
+    <div><input #updatePassword type="string" placeholder="password"></div>
+
+    <button
+        (click)="updateCustomer(updateId.value,updateFirstName.value,updateLastName.value,updateEmail.value,updatePassword.value)">update</button>
+</fieldset>

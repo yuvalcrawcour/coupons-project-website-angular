@@ -1,0 +1,39 @@
+<h1>coupons project website - login page</h1>
+<br/><br/><br/>
+<fieldset>
+  <legend>login</legend>
+  <form action="" #formInfo="ngForm">
+    <!-- <input name="name" type="text" placeholder="name" [(ngModel)]="name" required #nameInfo="ngModel"
+      pattern="^[A-Z].*$" />
+ <span *ngIf="nameInfo.invalid && nameInfo.touched">name is missing</span> -->
+    <!-- <span *ngIf="nameInfo.invalid && nameInfo.dirty">name is missing</span> -->
+    <!-- <span *ngIf="nameInfo.touched && nameInfo.errors?.['required']">name missing</span>
+  <span *ngIf="nameInfo.touched && nameInfo.errors?.['pattern']">name mast start with a capital letter</span>
+  <br /> -->
+
+    <input name="email" type="text" placeholder="email" [(ngModel)]="email" required #emailInfo="ngModel"
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+    <span *ngIf="emailInfo.touched && emailInfo.errors?.['required']">email is missing</span>
+    <span *ngIf="emailInfo.touched && emailInfo.errors?.['pattern']">email is not valid</span>
+    <br />
+
+    <input name="password" type="text" placeholder="password" [(ngModel)]="password" required #passwordInfo="ngModel" />
+    <span *ngIf="passwordInfo.touched && passwordInfo.errors?.['required']">password is missing</span>
+    <br />
+
+    <select required [(ngModel)]="clientType" #clientTypeInfo="ngModel" name="clientTypeInfo" placeholder="clientType">
+      <option  value="ADMIN" selected>ADMIN</option>
+      <option value="CUSTOMER">CUSTOMER</option>
+      <option value="COMPANY">COMPANY</option>
+    </select>
+  <span>client type</span>
+    <br/>
+
+    <button [disabled]="formInfo.invalid" (click)="login()">
+      login
+    </button>
+  </form>
+
+</fieldset>
+<br/><br/><br/><br/><br/>
+<p>made by yuval crawcour &copy;</p>
