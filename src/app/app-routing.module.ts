@@ -5,7 +5,7 @@ import { AddCouponsComponent } from './components/company-components/add-coupons
 import { AdminLayoutComponent } from './components/admin-components/admin-layout/admin-layout.component';
 import { CompanyDetailsComponent } from './components/admin-components/company-details/company-details.component';
 import { CompanyLayoutComponent } from './components/company-components/company-layout/company-layout.component';
-import { CustomerDetailsComponent } from './components/admin-components/customer-details/customer-details.component';
+import { AdminCustomerDetailsComponent} from './components/admin-components/admin-customer-details/admin-customer-details.component';
 import { DeleteUpdateCouponsComponent } from './components/company-components/delete-update-coupons/delete-update-coupons.component';
 import { HomeComponent } from './components/general/home/home.component';
 import { LoginComponent } from './components/general/login/login.component';
@@ -16,9 +16,18 @@ import { Page404Component } from './components/general/page404/page404.component
 import { ViewCompaniesComponent } from './components/admin-components/view-companies/view-companies.component';
 import { ViewCustomersComponent } from './components/admin-components/view-customers/view-customers.component';
 import { ViewCompanyCouponsComponent } from './components/company-components/view-company-coupons/view-company-coupons.component';
+import { CustomerLayoutComponent } from './components/customer-components/customer-layout/customer-layout.component';
+import { PurchaseCouponComponent } from './components/customer-components/purchase-coupon/purchase-coupon.component';
+import { CustomerDetailsComponent } from './components/customer-components/customer-details/customer-details.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  {
+    path: 'welcome-customer', component: CustomerLayoutComponent, children: [
+      { path: 'purchase-coupon', component: PurchaseCouponComponent },
+      { path: 'customer-details', component: CustomerDetailsComponent }
+    ]
+  },
   {
     path: 'welcome-company', component: CompanyLayoutComponent, children: [
       { path: 'home', component: HomeComponent },
@@ -37,7 +46,7 @@ const routes: Routes = [
       { path: 'companyDetails/:id', component: CompanyDetailsComponent },
       { path: 'view-customers', component: ViewCustomersComponent },
       { path: 'manage-customers', component: ManageCustomersComponent },
-      { path: 'customerDetails/:id', component: CustomerDetailsComponent }
+      { path: 'adminCustomerDetails/:id', component: AdminCustomerDetailsComponent}
     ]
   },
 

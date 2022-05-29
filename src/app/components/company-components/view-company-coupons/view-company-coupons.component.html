@@ -1,22 +1,28 @@
 <form action="" #FormInfoCategory="ngForm">
-<select required #category placeholder="category">
-    <option value="FOOD" selected>FOOD</option>
-    <option value="ELECTRONICS">ELECTRONICS</option>
-    <option value="HOME">HOME</option>
-    <option value="CLOTHING">CLOTHING</option>
-    <option value="CAMPING">CAMPING</option>
-    <option value="VACATION">VACATION</option>
-</select>
+    <select required #category placeholder="category">
+        <option value="FOOD" selected>FOOD</option>
+        <option value="ELECTRONICS">ELECTRONICS</option>
+        <option value="HOME">HOME</option>
+        <option value="CLOTHING">CLOTHING</option>
+        <option value="CAMPING">CAMPING</option>
+        <option value="VACATION">VACATION</option>
+    </select>
 
-<button [disabled]="FormInfoCategory.invalid" (click)="showByCategory(category.value)">show by category</button>
+    <button [disabled]="FormInfoCategory.invalid" (click)="showByCategory(category.value)">show by category</button>
 </form>
 
-<ng-template #loading>
-    <div style="text-align: center">
-        <img src="assets/images/loading.gif" alt="loading..." width="150" />
-    </div>
-</ng-template>
-<table *ngIf="toShowByCategory; else loading">
+<form action="" #FormInfoMaxPrice="ngForm">
+    <input #maxPriceInfo type="number" required placeholder="max price">
+
+    <button [disabled]="FormInfoMaxPrice.invalid" (click)="showByMaxPrice(maxPriceInfo.value)">show by max
+        price</button>
+</form>
+
+<button  (click)="showAllCoupons()">show all coupons</button>
+
+
+
+<table *ngIf="toShowCoupons">
     <tr>
         <th>title</th>
         <th>description</th>
@@ -30,7 +36,7 @@
 
     </tr>
     <tbody>
-        <tr *ngFor="let c of couponsByCategory">
+        <tr *ngFor="let c of coupons">
             <td>{{c.title}}</td>
             <td>{{c.description}}</td>
             <td>{{c.category}}</td>
@@ -39,3 +45,6 @@
             <td>{{c.endDate}}</td>
             <td>{{c.price}}</td>
             <td>{{c.image}}</td>
+        </tr>
+    </tbody>
+</table>

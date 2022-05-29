@@ -8,7 +8,8 @@
   <h1>hello admin</h1> 
       <h2>this website is ready for you to use. </h2>
      <h2 *ngIf="checkClientType() == 'ADMIN' " > you can manage the companies and the customers as you wish and view them.</h2>
-     <h2 *ngIf="checkClientType() == 'COMPANY' " > you can</h2>
+     <h2 *ngIf="checkClientType() == 'COMPANY' " > you can COMPANY</h2>
+     <h2 *ngIf="checkClientType() == 'CUSTOMER' " > you can CUSTOMER</h2>
   
   <!-- databinding 2. property binding [] -->
   <img src="assets/images/coupons.png" [width]="imgWidth" alt="" />

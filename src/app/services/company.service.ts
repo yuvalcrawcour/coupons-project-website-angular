@@ -59,7 +59,24 @@ export class CompanyService {
       token = token!=null?token:"";
       let httpHeaders = new HttpHeaders().set("token",token);
       let options = {headers:httpHeaders};
-      return this.httpClient.get<Company[]>("http://localhost:8080/api/company/get-company-coupons-category/"+category, options);
+      return this.httpClient.get<Coupon[]>("http://localhost:8080/api/company/get-company-coupons-category/"+category, options);
+   
+    }
+    public getAllCouponsHttp(): Observable<Coupon[]> {
+      let token = sessionStorage.getItem("token");
+      token = token!=null?token:"";
+      let httpHeaders = new HttpHeaders().set("token",token);
+      let options = {headers:httpHeaders};
+      return this.httpClient.get<Coupon[]>("http://localhost:8080/api/company/get-company-coupons", options);
+   
+    }
+
+    public getCouponsByMaxPriceHttp(maxPrice:number): Observable<Coupon[]> {
+      let token = sessionStorage.getItem("token");
+      token = token!=null?token:"";
+      let httpHeaders = new HttpHeaders().set("token",token);
+      let options = {headers:httpHeaders};
+      return this.httpClient.get<Coupon[]>("http://localhost:8080/api/company/get-company-coupons-max-price/"+maxPrice, options);
    
     }
 }

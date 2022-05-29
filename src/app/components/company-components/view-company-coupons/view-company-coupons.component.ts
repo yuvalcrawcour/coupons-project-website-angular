@@ -8,9 +8,9 @@ import { CompanyService } from 'src/app/services/company.service';
   styleUrls: ['./view-company-coupons.component.css']
 })
 export class ViewCompanyCouponsComponent implements OnInit {
-  public toShowByCategory: boolean= false;
+  public toShowCoupons: boolean= false;
   public category?: Category;
-  public couponsByCategory?:Coupon[];
+  public coupons?:Coupon[];
 
   constructor(private companyService:CompanyService) { }
 
@@ -18,8 +18,18 @@ export class ViewCompanyCouponsComponent implements OnInit {
   }
 
   public showByCategory(category:string){
-    this.toShowByCategory = true;
+    this.toShowCoupons= true;
     this.category = category as Category;
-    this.companyService.getCouponsByCategoryHttp(this.category).subscribe({next});
+    this.companyService.getCouponsByCategoryHttp(this.category).subscribe({next: (array)=>{this.coupons=array},error:(err)=>{alert(err)}});
+  }
+
+  public showByMaxPrice(maxPriceAsStr:string){
+    this.toShowCoupons= true;
+    this.companyService.getCouponsByMaxPriceHttp(Number.parseFloat(maxPriceAsStr)).subscribe({next: (array)=>{this.coupons=array},error:(err)=>{alert(err)}});
+  }
+
+  public showAllCoupons(){
+    this.toShowCoupons= true;
+    this.companyService.getAllCouponsHttp().subscribe({next: (array)=>{this.coupons=array},error:(err)=>{alert(err)}});
   }
 }

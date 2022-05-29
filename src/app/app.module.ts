@@ -18,16 +18,20 @@ import { ManageCompaniesComponent } from './components/admin-components/manage-c
 import { CompanyDetailsComponent } from './components/admin-components/company-details/company-details.component';
 import { ManageCustomersComponent } from './components/admin-components/manage-customers/manage-customers.component';
 import { ViewCustomersComponent } from './components/admin-components/view-customers/view-customers.component';
-import { CustomerDetailsComponent } from './components/admin-components/customer-details/customer-details.component';
+import { AdminCustomerDetailsComponent } from './components/admin-components/admin-customer-details/admin-customer-details.component';
 import { HomeComponent } from './components/general/home/home.component';
 import { CompanyLayoutComponent } from './components/company-components/company-layout/company-layout.component';
 import { ManageCompanyCouponsComponent } from './components/company-components/manage-company-coupons/manage-company-coupons.component';
 import { AddCouponsComponent } from './components/company-components/add-coupons/add-coupons.component';
 import { DeleteUpdateCouponsComponent } from './components/company-components/delete-update-coupons/delete-update-coupons.component';
 import { ViewCompanyCouponsComponent } from './components/company-components/view-company-coupons/view-company-coupons.component';
+import { CustomerLayoutComponent } from './components/customer-components/customer-layout/customer-layout.component';
+import { PurchaseCouponComponent } from './components/customer-components/purchase-coupon/purchase-coupon.component';
+import { ViewCouponsComponent } from './components/customer-components/view-coupons/view-coupons.component';
+import { CustomerDetailsComponent } from './components/customer-components/customer-details/customer-details.component';
 
 @NgModule({
-  declarations: [ HeaderComponent, FooterComponent, MenuComponent, AboutComponent, Page404Component, ThumbnailComponent, LoginComponent, RootComponent, AdminLayoutComponent, ViewCompaniesComponent, ManageCompaniesComponent, CompanyDetailsComponent, ManageCustomersComponent, ViewCustomersComponent, CustomerDetailsComponent, HomeComponent, CompanyLayoutComponent, ManageCompanyCouponsComponent, AddCouponsComponent, DeleteUpdateCouponsComponent, ViewCompanyCouponsComponent],
+  declarations: [ HeaderComponent, FooterComponent, MenuComponent, AboutComponent, Page404Component, ThumbnailComponent, LoginComponent, RootComponent, AdminLayoutComponent, ViewCompaniesComponent, ManageCompaniesComponent, CompanyDetailsComponent, ManageCustomersComponent, ViewCustomersComponent, AdminCustomerDetailsComponent, HomeComponent, CompanyLayoutComponent, ManageCompanyCouponsComponent, AddCouponsComponent, DeleteUpdateCouponsComponent, ViewCompanyCouponsComponent, CustomerLayoutComponent, PurchaseCouponComponent, ViewCouponsComponent,CustomerDetailsComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule,HttpClientModule],
   providers: [],
   bootstrap: [RootComponent],

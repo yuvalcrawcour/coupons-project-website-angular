@@ -25,10 +25,15 @@ export class LoginComponent implements OnInit {
       if(clientType=="ADMIN"){
         this.router.navigate(["/welcome-admin"]);
       }else{
-        this.router.navigate(["/welcome-company"])
+        if(clientType=="COMPANY"){
+          this.router.navigate(["/welcome-company"]);
+        }else{
+          this.router.navigate(["/welcome-customer"]);
+        }
+        
       }
       
-      console.log(token);
+      console.log(clientType);
     },error:(e)=>{let errAsObj = JSON.parse(e.error);
       alert(errAsObj.error+" "+errAsObj.message);}});
   }
