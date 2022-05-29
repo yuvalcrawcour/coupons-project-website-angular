@@ -19,13 +19,15 @@ import { ViewCompanyCouponsComponent } from './components/company-components/vie
 import { CustomerLayoutComponent } from './components/customer-components/customer-layout/customer-layout.component';
 import { PurchaseCouponComponent } from './components/customer-components/purchase-coupon/purchase-coupon.component';
 import { CustomerDetailsComponent } from './components/customer-components/customer-details/customer-details.component';
+import { ViewCouponsComponent } from './components/customer-components/view-coupons/view-coupons.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: 'welcome-customer', component: CustomerLayoutComponent, children: [
       { path: 'purchase-coupon', component: PurchaseCouponComponent },
-      { path: 'customer-details', component: CustomerDetailsComponent }
+      { path: 'customer-details', component: CustomerDetailsComponent },
+      { path: 'view-coupons', component: ViewCouponsComponent }
     ]
   },
   {

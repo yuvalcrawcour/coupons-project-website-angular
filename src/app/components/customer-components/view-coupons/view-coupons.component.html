@@ -1,1 +1,50 @@
-<p>view-coupons works!</p>
+<form action="" #FormInfoCategory="ngForm">
+    <select required #category placeholder="category">
+        <option value="FOOD" selected>FOOD</option>
+        <option value="ELECTRONICS">ELECTRONICS</option>
+        <option value="HOME">HOME</option>
+        <option value="CLOTHING">CLOTHING</option>
+        <option value="CAMPING">CAMPING</option>
+        <option value="VACATION">VACATION</option>
+    </select>
+
+    <button [disabled]="FormInfoCategory.invalid" (click)="showCouponsByCategory(category.value)">show by category</button>
+</form>
+
+<form action="" #FormInfoMaxPrice="ngForm">
+    <input #maxPriceInfo type="number" required placeholder="max price">
+
+    <button [disabled]="FormInfoMaxPrice.invalid" (click)="showCouponsByMaxPrice(maxPriceInfo.value)">show by max
+        price</button>
+</form>
+
+<button  (click)="showAllCoupons()">show all coupons</button>
+
+
+
+<table *ngIf="toShowCoupons">
+    <tr>
+        <th>title</th>
+        <th>description</th>
+        <th>category</th>
+        <th>amount</th>
+        <th>startDate</th>
+        <th>endDate</th>
+        <th>price</th>
+        <th>image</th>
+
+
+    </tr>
+    <tbody>
+        <tr *ngFor="let c of coupons">
+            <td>{{c.title}}</td>
+            <td>{{c.description}}</td>
+            <td>{{c.category}}</td>
+            <td>{{c.amount}}</td>
+            <td>{{c.startDate}}</td>
+            <td>{{c.endDate}}</td>
+            <td>{{c.price}}</td>
+            <td>{{c.image}}</td>
+        </tr>
+    </tbody>
+</table>

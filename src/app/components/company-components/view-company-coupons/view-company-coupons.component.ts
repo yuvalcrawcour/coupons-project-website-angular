@@ -20,16 +20,16 @@ export class ViewCompanyCouponsComponent implements OnInit {
   public showByCategory(category:string){
     this.toShowCoupons= true;
     this.category = category as Category;
-    this.companyService.getCouponsByCategoryHttp(this.category).subscribe({next: (array)=>{this.coupons=array},error:(err)=>{alert(err)}});
+    this.companyService.getCouponsByCategoryHttp(this.category).subscribe({next: (array)=>{this.coupons=array},error:(err)=>{alert(err.error.message)}});
   }
 
   public showByMaxPrice(maxPriceAsStr:string){
     this.toShowCoupons= true;
-    this.companyService.getCouponsByMaxPriceHttp(Number.parseFloat(maxPriceAsStr)).subscribe({next: (array)=>{this.coupons=array},error:(err)=>{alert(err)}});
+    this.companyService.getCouponsByMaxPriceHttp(Number.parseFloat(maxPriceAsStr)).subscribe({next: (array)=>{this.coupons=array},error:(err)=>{alert(err.error.message)}});
   }
 
   public showAllCoupons(){
     this.toShowCoupons= true;
-    this.companyService.getAllCouponsHttp().subscribe({next: (array)=>{this.coupons=array},error:(err)=>{alert(err)}});
+    this.companyService.getAllCouponsHttp().subscribe({next: (array)=>{this.coupons=array},error:(err)=>{alert(err.error.message)}});
   }
 }
